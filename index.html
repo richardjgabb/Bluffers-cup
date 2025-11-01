@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluffers Cup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scoreboard">
+        <h1 class="title">Bluffers Cup</h1>
+        <h3 class="subtitle">Est. 2024</h3>
+        <table id="winners-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Champion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Winners will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function loadWinners() {
+            try {
+                const response = await fetch('winners.json');
+                const data = await response.json();
+
+                const tableBody = document.querySelector('#winners-table tbody');
+                tableBody.innerHTML = '';
+
+                data.winners.forEach(winner => {
+                    const row = document.createElement('tr');
+                    const yearCell = document.createElement('td');
+                    const nameCell = document.createElement('td');
+
+                    yearCell.textContent = winner.date;
+                    nameCell.textContent = winner.name;
+
+                    row.appendChild(yearCell);
+                    row.appendChild(nameCell);
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading winners:', error);
+            }
+        }
+
+        window.onload = loadWinners;
+    </script>
+</body>
+</html>

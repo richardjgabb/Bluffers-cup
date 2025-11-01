@@ -1,0 +1,55 @@
+body {
+    background-color: #013220; /* Deep golf green */
+    font-family: 'Georgia', serif;
+    color: #d4af37; /* Gold text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.scoreboard {
+    background-color: #024d1f;
+    border: 5px solid #d4af37;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    text-align: center;
+    width: 400px;
+}
+
+.title {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 3px #000;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #d4af37;
+}
+
+th {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+td {
+    font-size: 1em;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}
