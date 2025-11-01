@@ -4,8 +4,6 @@ body {
     color: #d4af37; /* Gold text */
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
 }
 
@@ -17,6 +15,7 @@ body {
     box-shadow: 0 0 25px rgba(0,0,0,0.6);
     text-align: center;
     width: 400px;
+    margin-top: 20px;
 }
 
 .title {

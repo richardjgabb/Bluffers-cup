@@ -15,6 +15,7 @@
             <thead>
                 <tr>
                     <th>Date</th>
+                    <th>Venue</th>
                     <th>Champion</th>
                 </tr>
             </thead>
@@ -36,12 +37,15 @@
                 data.winners.forEach(winner => {
                     const row = document.createElement('tr');
                     const yearCell = document.createElement('td');
+                    const venueCell = document.createElement('td');
                     const nameCell = document.createElement('td');
 
                     yearCell.textContent = winner.date;
+                    venueCell.textContent = winner.venue;
                     nameCell.textContent = winner.name;
 
                     row.appendChild(yearCell);
+                    row.appendChild(venueCell);
                     row.appendChild(nameCell);
                     tableBody.appendChild(row);
                 });
