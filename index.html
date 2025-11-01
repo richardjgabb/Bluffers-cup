@@ -24,8 +24,57 @@
             </tbody>
         </table>
     </div>
+    <div class="resultModal">
+        <h2 id="modalVenue"></h2>
+        <h3 id="modalDate"></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Points</th>
+                </tr>
+            <tbody id="modalTable">
+                <!-- Winners will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+        <button id="closeModalButton">Close</button>
+    </div>
 
     <script>
+        const closeModalButton = document.getElementById('closeModalButton');
+        const resultModal = document.querySelector('.resultModal');
+        const scoreboard = document.querySelector('.scoreboard');
+
+        closeModalButton.addEventListener('click', () => {
+            resultModal.style.display = 'none';
+            scoreboard.style.display = 'block';
+        });
+
+        const hydrateModal = (data) => {
+            const modalDate = document.getElementById('modalDate');
+            const modalVenue = document.getElementById('modalVenue');
+            const modalTable = document.getElementById('modalTable');
+            modalDate.textContent = `${data.date}`;
+            modalVenue.textContent = `${data.venue}`;
+            modalTable.innerHTML = '';
+            Object.keys(data).forEach(key => {
+                if (key !== 'date' && key !== 'venue') {
+                    const row = document.createElement('tr');
+                    const nameCell = document.createElement('td');
+                    const pointsCell = document.createElement('td');
+
+                    nameCell.textContent = `${key}. ${data[key].name}`;
+                    pointsCell.textContent = data[key].points;
+
+                    row.appendChild(nameCell);
+                    row.appendChild(pointsCell);
+                    modalTable.appendChild(row);
+                }
+            });
+            resultModal.style.display = 'block';
+            scoreboard.style.display = 'none';
+        }
+
         async function loadWinners() {
             try {
                 const response = await fetch('winners.json');
@@ -42,11 +91,12 @@
 
                     yearCell.textContent = winner.date;
                     venueCell.textContent = winner.venue;
-                    nameCell.textContent = winner.name;
+                    nameCell.textContent = winner['1'].name;
 
                     row.appendChild(yearCell);
                     row.appendChild(venueCell);
                     row.appendChild(nameCell);
+                    row.addEventListener('click', () => hydrateModal(winner));
                     tableBody.appendChild(row);
                 });
             } catch (error) {

@@ -7,26 +7,48 @@ body {
     margin: 0;
 }
 
-.scoreboard {
+.scoreboard, .resultModal {
     background-color: #024d1f;
     border: 5px solid #d4af37;
     border-radius: 12px;
+    font-size: 14px;
     padding: 40px;
     box-shadow: 0 0 25px rgba(0,0,0,0.6);
-    text-align: center;
-    width: 400px;
+    min-width: 350px;
     margin-top: 20px;
 }
 
-.title {
+.title, #modalVenue {
     font-size: 1.8em;
+    text-align: center;
     text-shadow: 1px 1px 3px #000;
 }
 
-.subtitle {
+.subtitle, #modalDate {
     font-size: 1em;
+    text-align: center;
     text-shadow: 1px 1px 3px #000;
     padding-bottom: 10px;
+}
+
+.resultModal {
+    display: none;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    background-color: #013220;
+    border: 1px solid #d4af37;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #d4af37;
+    font-family: 'Georgia', serif;
+}
+
+button:hover {
+    background-color: #015234;
+    cursor: pointer;
 }
 
 table {
@@ -36,12 +58,12 @@ table {
 
 th, td {
     padding: 10px;
+    text-align: left;
     border-bottom: 1px solid #d4af37;
 }
 
 th {
     font-weight: bold;
-    font-size: 1.1em;
 }
 
 td {
@@ -54,4 +76,5 @@ tr:last-child td {
 
 tr:hover {
     background-color: rgba(212, 175, 55, 0.1);
+    cursor: pointer;
 }
