@@ -8,23 +8,30 @@ body {
 }
 
 .scoreboard, .resultModal {
+    display: flex;
     background-color: #024d1f;
     border: 5px solid #d4af37;
     border-radius: 12px;
     font-size: 14px;
-    padding: 40px;
+    padding: 20px;
     box-shadow: 0 0 25px rgba(0,0,0,0.6);
-    min-width: 350px;
+    max-width: 90vw;
+    min-width: 250px;
     margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title, #modalVenue {
+    margin: 0;
+    padding: 0.5rem;
     font-size: 1.8em;
     text-align: center;
     text-shadow: 1px 1px 3px #000;
 }
 
 .subtitle, #modalDate {
+    margin: 0;
     font-size: 1em;
     text-align: center;
     text-shadow: 1px 1px 3px #000;
@@ -36,8 +43,9 @@ body {
 }
 
 button {
+    margin-top: 0.5rem;
+    width: fit-content;
     padding: 0.5rem 1rem;
-    margin-top: 1rem;
     background-color: #013220;
     border: 1px solid #d4af37;
     border-radius: 4px;
