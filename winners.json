@@ -95,6 +95,22 @@
                 "name": "R. Gabb",
                 "points": 14
             }
+        },
+        {
+            "date": "11th April 2026",
+            "venue": "Wheathill",
+            "1": {
+                "name": "D. Manlow",
+                "points": 18
+            },
+            "2": {
+                "name": "S. Edwards",
+                "points": 16
+            },
+            "3": {
+                "name": "R. Gabb",
+                "points": 10
+            }
         }
     ]
 }
